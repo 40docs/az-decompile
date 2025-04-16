@@ -26,7 +26,7 @@
 
 ### 🔄 Conversion from JSON to Bicep
 
-This Bicep file was generated from an existing ARM JSON template using the [Azure CLI Bicep decompile](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile) tool, the original template is sourced from Fortinet's official github [github](github.com/fortinet/azure-templates):
+This Bicep file was generated from an existing ARM JSON template using the [Azure CLI Bicep decompile](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile) tool, the original template is sourced from Fortinet's official [Github](github.com/fortinet/azure-templates):
 
 ```bash
 az bicep decompile --file azuredeploy.json
