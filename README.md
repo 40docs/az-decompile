@@ -207,10 +207,25 @@ The template includes conditional logic for:
 
 This project follows strict markdown and code quality standards:
 
-- **Markdownlint compliance**: All markdown files pass linting rules
+- **Markdownlint compliance**: All markdown files pass linting rules (verified with `markdownlint-cli2`)
 - **Bicep best practices**: Modern syntax and patterns
 - **Conventional commits**: Structured commit messages
 - **AI agent friendly**: Comprehensive documentation for automation
+
+### Quality Checks
+
+Run the following commands to validate the project:
+
+```bash
+# Check all markdown files
+npx markdownlint-cli2 "**/*.md"
+
+# Or use the provided script
+./scripts/lint-markdown.sh
+
+# Validate Bicep templates
+az bicep build --file final/azuredeploy.bicep
+```
 
 ## 🤝 Contributing
 
@@ -218,7 +233,7 @@ This project follows strict markdown and code quality standards:
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Follow the established patterns in `final/` directory
 4. Update documentation as needed
-5. Ensure all linting passes
+5. Ensure all linting passes (`npx markdownlint-cli2 "**/*.md"`)
 6. Create a Pull Request
 
 ### Development Tools
