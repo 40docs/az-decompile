@@ -1,10 +1,12 @@
 # Azure Bicep Decompilation Project
 
-[![Bicep](https://img.shields.io/badge/Bicep-Latest-blue)](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/)
-[![Azure CLI](https://img.shields.io/badge/Azure_CLI-Latest-orange)](https://docs.microsoft.com/en-us/cli/azure/)
+[![Bicep](https://img.shields.io/badge/Bicep-Latest-blue)](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/)
+[![Azure CLI](https://img.shields.io/badge/Azure_CLI-Latest-orange)](https://learn.microsoft.com/en-us/cli/azure/)
 [![FortiGate](https://img.shields.io/badge/FortiGate-HA_Deployment-red)](https://github.com/fortinet/azure-templates)
 
-This project demonstrates **ARM JSON to Bicep conversion** for Fortinet FortiGate infrastructure templates. It showcases the complete decompilation workflow, including systematic cleanup of common conversion issues found when migrating from ARM templates to modern Bicep syntax.
+This project demonstrates **ARM JSON to Bicep conversion** for Fortinet FortiGate infrastructure templates.
+It showcases the complete decompilation workflow, including systematic cleanup of common conversion issues
+found when migrating from ARM templates to modern Bicep syntax.
 
 ## 📋 Table of Contents
 
@@ -18,8 +20,8 @@ This project demonstrates **ARM JSON to Bicep conversion** for Fortinet FortiGat
 
 ## 🎯 Project Overview
 
-**Source**: [Fortinet's official Azure templates](https://github.com/fortinet/azure-templates)
-**Purpose**: Demonstrate ARM-to-Bicep conversion with real-world infrastructure
+**Source**: [Fortinet's official Azure templates](https://github.com/fortinet/azure-templates)  
+**Purpose**: Demonstrate ARM-to-Bicep conversion with real-world infrastructure  
 **Infrastructure**: Dual FortiGate HA setup with multi-architecture support
 
 ### Key Learning Outcomes
@@ -50,7 +52,7 @@ This project demonstrates **ARM JSON to Bicep conversion** for Fortinet FortiGat
 
 ### Prerequisites
 
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) with Bicep extension
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) with Bicep extension
 - Active Azure subscription
 - Appropriate permissions to create resources
 
@@ -218,13 +220,15 @@ Run the following commands to validate the project:
 
 ```bash
 # Check all markdown files
+npm run lint
+# or
 npx markdownlint-cli2 "**/*.md"
 
-# Or use the provided script
-./scripts/lint-markdown.sh
+# Validate all project components
+npm run validate
 
-# Validate Bicep templates
-az bicep build --file final/azuredeploy.bicep
+# Validate Bicep templates only
+npm run validate:bicep
 ```
 
 ## 🤝 Contributing
@@ -244,10 +248,10 @@ az bicep build --file final/azuredeploy.bicep
 
 ## 📚 Additional Resources
 
-- [Azure Bicep Documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/)
+- [Azure Bicep Documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/)
 - [Fortinet Azure Templates](https://github.com/fortinet/azure-templates)
-- [ARM to Bicep Decompilation Guide](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile)
-- [Bicep Best Practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/best-practices)
+- [ARM to Bicep Decompilation Guide](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/decompile)
+- [Bicep Best Practices](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/best-practices)
 
 ---
 

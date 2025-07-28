@@ -1,0 +1,33 @@
+name: Validate Project
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Lint Markdown
+        run: npx markdownlint-cli2 "**/*.md"
+
+  bicep-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Azure CLI
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+      - name: Install Bicep
+        run: az bicep install
+      - name: Validate Bicep Templates
+        run: |
+          az bicep build --file base/azuredeploy.bicep --stdout > /dev/null
+          az bicep build --file final/azuredeploy.bicep --stdout > /dev/null
