@@ -18,8 +18,8 @@ This project demonstrates **ARM JSON to Bicep conversion** for Fortinet FortiGat
 
 ## 🎯 Project Overview
 
-**Source**: [Fortinet's official Azure templates](https://github.com/fortinet/azure-templates)  
-**Purpose**: Demonstrate ARM-to-Bicep conversion with real-world infrastructure  
+**Source**: [Fortinet's official Azure templates](https://github.com/fortinet/azure-templates)
+**Purpose**: Demonstrate ARM-to-Bicep conversion with real-world infrastructure
 **Infrastructure**: Dual FortiGate HA setup with multi-architecture support
 
 ### Key Learning Outcomes
