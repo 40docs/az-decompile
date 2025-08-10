@@ -43,6 +43,8 @@ found when migrating from ARM templates to modern Bicep syntax.
 │   ├── azuredeploy.json          # Reference ARM template
 │   └── azuredeploy.parameters.json
 ├── interventions.txt              # Complete fix log
+├── package.json                   # npm scripts for validation
+├── CLAUDE.md                      # Claude Code AI guidance
 ├── .github/
 │   └── copilot-instructions.md   # AI agent guidance
 └── README.md                     # This file
@@ -53,8 +55,15 @@ found when migrating from ARM templates to modern Bicep syntax.
 ### Prerequisites
 
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) with Bicep extension
+- [Node.js](https://nodejs.org/) for running validation scripts
 - Active Azure subscription
 - Appropriate permissions to create resources
+
+### Install Dependencies
+
+```bash
+npm install
+```
 
 ### Deploy the Infrastructure
 
@@ -123,7 +132,20 @@ Apply fixes systematically across the template:
 
 ### Step 4: Validation
 
-Test deployment to ensure the cleaned template works correctly.
+Run comprehensive validation to ensure the cleaned template works correctly:
+
+```bash
+# Validate markdown formatting
+npm run lint
+
+# Validate Bicep syntax
+npm run validate:bicep
+
+# Run all validations
+npm run validate
+```
+
+Test deployment in a development environment before production use.
 
 ## 🛠️ Common Fixes Applied
 
@@ -221,14 +243,18 @@ Run the following commands to validate the project:
 ```bash
 # Check all markdown files
 npm run lint
-# or
-npx markdownlint-cli2 "**/*.md"
 
-# Validate all project components
-npm run validate
+# Auto-fix markdown issues
+npm run lint:fix
 
 # Validate Bicep templates only
 npm run validate:bicep
+
+# Validate all project components (lint + bicep)
+npm run validate
+
+# Manual markdownlint (alternative)
+npx markdownlint-cli2 "**/*.md"
 ```
 
 ## 🤝 Contributing
@@ -237,7 +263,7 @@ npm run validate:bicep
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Follow the established patterns in `final/` directory
 4. Update documentation as needed
-5. Ensure all linting passes (`npx markdownlint-cli2 "**/*.md"`)
+5. Ensure all validations pass (`npm run validate`)
 6. Create a Pull Request
 
 ### Development Tools
@@ -245,6 +271,7 @@ npm run validate:bicep
 - Use VS Code with recommended extensions (see `.vscode/extensions.json`)
 - Follow the commit message format in `.vscode/settings.json`
 - Reference `.github/copilot-instructions.md` for AI assistance
+- See `CLAUDE.md` for Claude Code specific guidance
 
 ## 📚 Additional Resources
 
